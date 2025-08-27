@@ -33,7 +33,6 @@ services:
     environment:
       - APP_VERSION=0.1.0
       - DB_PASSWORD
-      - APP_TOKEN=${APP_TOKEN}
       - DEBUG=true
       - FLASK_APP=./app.py
       - DB_HOST-postgres
