@@ -12,7 +12,7 @@ app = Flask(__name__)
 def about():
     # get the version of server to show in response
     version = os.environ.get('APP_VERSION')
-    return {'version': version}, 200
+    return "Welcome to the Home Page!"
 
 @app.route('/secrets',methods=['GET'])
 def secrets():
