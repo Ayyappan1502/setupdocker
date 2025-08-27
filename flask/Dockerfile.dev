@@ -5,7 +5,7 @@ FROM python:3.12.4-alpine3.20
 RUN apk add --no-cache curl
 
 WORKDIR /app
-COPY . /app/
+
 # first copy the dependencies only
 
 
@@ -21,5 +21,8 @@ RUN pip install  -r requirements.txt
 
 # now copy the app code
 # build time by using the cache if no new dependencies are added
+# 
+COPY app.py .
+
 
 CMD ["gunicorn","--bind","0.0.0.0:8080","app:app"]
