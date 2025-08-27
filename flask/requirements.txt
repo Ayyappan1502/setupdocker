@@ -1,0 +1,7 @@
+Flask
+packaging==25.0
+psycopg==3.2.9
+psycopg-binary==3.2.9
+psycopg-pool==3.2.6
+wheel
+gunicorn

@@ -1,0 +1,96 @@
+services:
+  nginx:
+    image: nginx:1.26.1-alpine
+    ports:
+      - 8080:8080
+    configs:
+      - source: nginx_conf
+        target: /etc/nginx/nginx.conf
+    networks: 
+      - public
+    depends_on:
+      flask: 
+        condition: service_healthy
+        restart: true
+
+      
+  flask:
+    image: aruptra/flask:latest
+    build:
+      context: flask
+      dockerfile: Dockerfile.dev
+    ports:
+      - 7060:8080
+    env_file:
+      - path: ./flask/dev.env
+    secrets:
+      - api_key
+      - source: api_key
+        target: /api_key.txt
+    configs:
+      - source: my_config
+        target: /config-dev-v2.yaml
+    environment:
+      - APP_VERSION=0.1.0
+      - DB_PASSWORD
+      - APP_TOKEN=${APP_TOKEN}
+      - DEBUG=true
+      - FLASK_APP=./app.py
+      - DB_HOST-postgres
+      - DB_DATABASES=mydb
+      - DB_USER=myuser
+    volumes:
+      - ./flask/config-dev.yaml:/config-dev.yaml
+      # - ./flask/my-data:/data
+      - flask-data:/data
+      - ./flask:/app
+    networks:
+      - private
+      - public
+    depends_on:
+      - postgres
+
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/about"]
+      interval: 5s
+      retries: 5
+      start_period: 15s
+      timeout: 5s
+      
+
+  postgres:
+    image: postgres:16.3
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=myuser
+      - POSTGRES_PASSWORD_FILE=/run/secrets/pg_password
+      - POSTGRES_DB=mydb
+    secrets:
+      - pg_password
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - private
+
+secrets:
+  api_key:
+    file: ./flask/api_key.txt
+  pg_password:
+    file: ./pg_password.txt
+
+configs:
+  my_config:
+    file: ./flask/config-dev.yaml
+  nginx_conf:
+    file: ./nginx.conf
+ 
+volumes:
+  flask-data:
+  postgres-data:
+
+networks:
+  public:
+  private:
+    driver: bridge
+

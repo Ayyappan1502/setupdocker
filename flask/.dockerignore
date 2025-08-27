@@ -1,0 +1,132 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+
+# CI
+.codeclimate.yml
+.travis.yml
+.taskcluster.yml
+
+# Docker
+docker-compose.yml
+Dockerfile
+.docker
+.dockerignore
+
+# Byte-compiled / optimized / DLL files
+**/__pycache__/
+**/*.py[cod]
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Virtual environment
+.env
+.venv/
+venv/
+
+# PyCharm
+.idea
+
+# Python mode for VIM
+.ropeproject
+**/.ropeproject
+
+# Vim swap files
+**/*.swp
+
+# VS Code
+.vscode/
+ZwickVitaly commented on Jul 4, 2024
+I don't see any comment here. I just wanted to say: Thank you for making life easier
+
+lionnelpat commented on Jul 5, 2024
+I agree with @ZwickVitaly
+Thanl's a lot
+
+tobimadehin commented on Jul 19, 2024
+Thanks a bunch!
+
+LzrdDragon commented on Jul 22, 2024
+Respect! And Thank You!
+
+mohammedsalah-ai commented on Oct 25, 2024
+BIG RESPECT!
+
+DAMunene commented on Nov 11, 2024
+Hats off!
+
+abdulwahidgul24085 commented on Mar 25
+Thanks
+
+albertduran commented on Apr 2
+Thank you!!
+
+rahul-singhania223 commented on Jun 21
+Thanks buddy!!
+
+Mognatti commented on Jun 27
+the GOAT
+
+ to join this conversation on GitHub. Already have an account? Sign in to comment
+Footer
+© 2025 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact
+Manage cookies
+Do not share my personal information
