@@ -58,7 +58,6 @@ jobs:
         tags: ${{ secrets.DOCKER_USERNAME }}/flasktest-app:latest
         source: |
           docker-compose.yaml
-        target: flask
     - name: Image digest
       run: echo ${{ steps.build-and-push.outputs.digest }}
       
