@@ -5,3 +5,4 @@ psycopg-binary==3.2.9
 psycopg-pool==3.2.6
 gunicorn
 pytest==7.4.0
+#python3-dotenv
