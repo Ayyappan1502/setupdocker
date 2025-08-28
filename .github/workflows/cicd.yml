@@ -53,11 +53,14 @@ jobs:
       uses: docker/build-push-action@v4
       with:
         context: .
-        file: Dockerfile.dev
+        
+        run: docker build ./flask --file ./flask/Dockerfile.dev  
+
+        # file: ./flask/Dockerfile.dev
         push: true
         tags: ${{ secrets.DOCKER_USERNAME }}/flasktest-app:latest
         source: |
-          docker-compose.yaml
+          ./docker-compose.yaml
     - name: Image digest
       run: echo ${{ steps.build-and-push.outputs.digest }}
       
