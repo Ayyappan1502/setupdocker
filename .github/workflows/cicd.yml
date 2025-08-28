@@ -55,7 +55,7 @@ jobs:
           context: ./flask
           file: ./flask/Dockerfile.dev
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/flasktest-app:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/flasklab123-app:latest
 
       - name: Image digest
         run: echo ${{ steps.build-and-push.outputs.digest }}
