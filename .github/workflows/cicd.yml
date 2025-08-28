@@ -54,9 +54,10 @@ jobs:
       with:
         context: .
         
-        run: docker build ./flask --file ./flask/Dockerfile.dev  
+        run: docker build ./flask --file ./flask/Dockerfile.dev && ls -R
 
-        # file: ./flask/Dockerfile.dev
+
+        file: ./flask/Dockerfile.dev
         push: true
         tags: ${{ secrets.DOCKER_USERNAME }}/flasktest-app:latest
         source: |
