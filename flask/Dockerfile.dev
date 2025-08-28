@@ -7,13 +7,11 @@ RUN apk add --no-cache curl
 WORKDIR /app
 
 # first copy the dependencies only
-COPY flask/requirements.txt .
-COPY flask/app.py .
 
 
 # Upgrade pip & setuptools
 RUN pip install --upgrade pip setuptools wheel
- 
+
 COPY requirements.txt .
 
 RUN pip install  -r requirements.txt
@@ -23,7 +21,8 @@ RUN pip install  -r requirements.txt
 
 # now copy the app code
 # build time by using the cache if no new dependencies are added
- 
+# 
+COPY app.py .
 
 
 CMD ["gunicorn","--bind","0.0.0.0:8080","app:app"]
