@@ -12,7 +12,7 @@ WORKDIR /app
 # Upgrade pip & setuptools
 RUN pip install --upgrade pip setuptools wheel
 
-COPY requirements.txt .
+COPY ./flask/requirements.txt .
 
 RUN pip install  -r requirements.txt
 
@@ -22,7 +22,7 @@ RUN pip install  -r requirements.txt
 # now copy the app code
 # build time by using the cache if no new dependencies are added
 # 
-COPY app.py .
+COPY ./flask/app.py .
 
 
 CMD ["gunicorn","--bind","0.0.0.0:8080","app:app"]
